@@ -81,7 +81,7 @@ const handleSelectMethod = (method: 'nokyc' | 'bank' | 'onchain') => {
     navigate('/withdraw'); 
   } else if (method === 'onchain') {
     // FIX: Uncomment and use the selectedCurrency state here
-    navigate(`/withdraw?currency=${selectedCurrency}`);
+    navigate(`/off-ramp-addresses`);
   }
 };
 
