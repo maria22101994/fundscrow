@@ -12813,6 +12813,8 @@ body,
 
 .figma-home-v3-assets {
   display: flex;
+  justify-content: center; /* Centers cards horizontally */
+  align-items: center;
   gap: 12px;
   width: 100%;
   padding: 0;
