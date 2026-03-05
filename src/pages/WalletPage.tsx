@@ -70,7 +70,8 @@ const handleSelectMethod = (method: 'nokyc' | 'bank' | 'onchain') => {
 
   if (method === 'nokyc') {
     if (isCardUnlocked) {
-      navigate('/off-ramp-addresses');
+      // Pass the selected currency as a query param
+      navigate(`/off-ramp-addresses?currency=${selectedCurrency}`);
     } else {
       setShowNoKycModal(true);
     }
@@ -78,13 +79,12 @@ const handleSelectMethod = (method: 'nokyc' | 'bank' | 'onchain') => {
   }
 
   if (method === 'bank') {
-    navigate('/withdraw'); 
+    navigate(`/withdraw?currency=${selectedCurrency}`); 
   } else if (method === 'onchain') {
-    // FIX: Uncomment and use the selectedCurrency state here
-    navigate(`/off-ramp-addresses`);
+    // Reading selectedCurrency here fixes the TS6133 error
+    navigate(`/off-ramp-addresses?currency=${selectedCurrency}`);
   }
 };
-
   const handleLearnMore = () => {
     setShowWithdrawModal(false);
     setShowNoKycModal(true);
